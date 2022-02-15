@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Author, Publisher, Book
 
-# Register your models here.
+models = [Author, Publisher, Book]
+
+for model in models:
+    try:
+        admin.site.register(model)
+    except admin.sites.AlreadyRegistered:
+        pass
+
