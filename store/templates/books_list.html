@@ -12,7 +12,11 @@
         Authors: {{ book.authors.first_name}} {{ book.authors.last_name}}   <br>
         Publisher: {{ book.publisher.name }} <br>
         Published: {{ book.published }} <br>
+        {% if book.book_img %}
+                <img src="{{  book.book_img.url }}" >
+        {% endif %}
         <li><a href="{% url 'store:book' book.id %}">See More</a></li>
+        <br>
         
     {% endfor %}
 </body>

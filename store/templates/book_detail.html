@@ -11,5 +11,10 @@
         Authors: {{ book.authors.first_name}} {{ book.authors.last_name}}   <br>
         Publisher: {{ book.publisher.name }} <br>
         Published: {{ book.published }} <br>
+        {% if book.book_img %}
+            <img src="{{  book.book_img.url }}" >
+        {% endif %}
+        <br>
+        
 </body>
 </html>
