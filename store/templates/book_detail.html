@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,9 @@
         Publisher: {{ book.publisher.name }} <br>
         Published: {{ book.published }} <br>
         {% if book.book_img %}
-            <img src="{{  book.book_img.url }}" >
+            <img src="{{  book.book_img.url }}" width="200" height="200" >
+        {% else  %}
+            <img src="{% static 'DEFAULT.jpg' %}" width="200" height="200" >
         {% endif %}
         <br>
         
