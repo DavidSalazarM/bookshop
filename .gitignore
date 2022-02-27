@@ -1,0 +1,8 @@
+.env
+
+store/migrations/__pycache__
+store/__pycache__
+
+static/media
+
+bookshop/__pycache__
