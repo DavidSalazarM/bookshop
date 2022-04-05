@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,13 @@
         Authors: {{ book.authors.first_name}} {{ book.authors.last_name}}   <br>
         Publisher: {{ book.publisher.name }} <br>
         Published: {{ book.published }} <br>
+        {% if book.book_img %}
+            <img src="{{  book.book_img.url }}" width="200" height="200" >
+        {% else  %}
+            <img src="{% static 'DEFAULT.jpg' %}" width="200" height="200" >
+        {% endif %}
         <li><a href="{% url 'store:book' book.id %}">See More</a></li>
+        <br>
         
     {% endfor %}
 </body>
