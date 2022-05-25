@@ -15,4 +15,5 @@ class Book(models.Model):
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     published = models.DateField()
     book_img = models.ImageField(upload_to='book_images/',null=True,blank=True)
+    pdf_file = models.FileField(upload_to='book_pdf/')
 

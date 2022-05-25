@@ -69,6 +69,7 @@ class BookDetail(APITestCase):
     
     def test_get_one_book(self):
         url_img = 'media/book_images/false.jpeg'   
+        file_url = '/book_pdf/false.pdf'   
         author = Author.objects.create(**{            
             'first_name': 'Argo',            
             'last_name': 'Zax' 
@@ -85,10 +86,11 @@ class BookDetail(APITestCase):
             'authors': author,
             'publisher': publisher,
             'published': "1999-12-12",
-            'book_img': url_img
+            'book_img': url_img,
+            'pdf_file':file_url
         })
 
-        response = self.client.get('/bookshop/book/{}/'.format(book_1.id))
+        response = self.client.get('/bookshop/books/{}/'.format(book_1.id))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'book_detail.html')
 
@@ -100,10 +102,16 @@ class BookDetail(APITestCase):
         self.assertContains(response, book_1.publisher.name)
         self.assertContains(response, book_1_published)
         self.assertContains(response, book_1.book_img)
+        self.assertContains(response, '<li><a href="/bookshop/download/{}/">Download</a></li>'.format(book_1.id), html=True)
+
+        
     
     def test_try_get_book_not_exist(self):
         response = self.client.get('/bookshop/store/-1/')
         self.assertEqual(response.status_code, 404)
+    
+
+
 
 
         

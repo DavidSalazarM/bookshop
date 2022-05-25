@@ -17,6 +17,7 @@
         {% else  %}
             <img src="{% static 'DEFAULT.jpg' %}" width="200" height="200" >
         {% endif %}
+        <li><a href="{% url 'store:download' book.id %}">Download</a></li>
         <br>
         
 </body>
