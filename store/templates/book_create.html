@@ -1,0 +1,21 @@
+<form action="" method="post", enctype="multipart/form-data">
+    <label for="title">Book Title: </label>
+    <input id="title" type="text" name="title" value="{{ title }}" required>
+    <br>
+    <label for="author">Author: </label>
+    <input id="author" type="text" name="author" value="{{ author }}">
+    <br>
+    <label for="publisher">Publisher: </label>
+    <input id="publisher" type="text" name="publisher" value="{{ publisher }}">
+    <br>
+    <label for="published">Publication date: </label>
+    <input id="published" type="date" name="published" value="{{ published }}" required>
+    <br>
+    <label for="book_img">Book Cover: </label>
+    <input id="book_img" type="file" name="book_img" value="{{ book_img }}">
+    <br>
+    <label for="pdf_file">Book Pdf: </label>
+    <input id="pdf_file" type="file" name="pdf_file" value="{{ pdf_file }} ">
+
+    <input type="submit" value="Save">
+</form>
